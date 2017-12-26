@@ -16,7 +16,7 @@
 
 /* Authors: Yoonseok Pyo, Leon Jung, Darby Lim, HanCheol Cho 
 *
-* SUSTC:Need to change the string where had mark as "SUSTC" for each robot.
+* SUSTC TODO:Need to change the string where had mark as "SUSTC TODO" for each robot.
 */
 
 #include "turtlebot3_core_config.h"
@@ -173,7 +173,7 @@ void setup()
   odom_pose[1] = 0.0;
   odom_pose[2] = 0.0;
 
-  joint_states.header.frame_id = "robot2_base_footprint"; // "base_footprint" SUSTC 
+  joint_states.header.frame_id = "robot2_base_footprint"; // "base_footprint" SUSTC TODO 
   joint_states.name            = joint_states_name;
 
   joint_states.name_length     = 2;
@@ -256,7 +256,7 @@ void commandVelocityCallback(const geometry_msgs::Twist& cmd_vel_msg)
 void publishImuMsg(void)
 {
   imu_msg.header.stamp    = nh.now();
-  imu_msg.header.frame_id = "robot2_imu_link"; // "imu_link"   SUSTC
+  imu_msg.header.frame_id = "robot2_imu_link"; // "imu_link"   SUSTC TODO
 
   imu_msg.angular_velocity.x = imu.SEN.gyroADC[0];
   imu_msg.angular_velocity.y = imu.SEN.gyroADC[1];
@@ -302,8 +302,8 @@ void publishImuMsg(void)
   imu_pub.publish(&imu_msg);
 
   tfs_msg.header.stamp    = nh.now();
-  tfs_msg.header.frame_id = "robot2_base_link";// "base_link"   SUSTC
-  tfs_msg.child_frame_id  = "robot2_imu_link";// "imu_link"     SUSTC
+  tfs_msg.header.frame_id = "robot2_base_link";// "base_link"   SUSTC TODO
+  tfs_msg.child_frame_id  = "robot2_imu_link";// "imu_link"     SUSTC TODO
   tfs_msg.transform.rotation.w = imu.quat[0];
   tfs_msg.transform.rotation.x = imu.quat[1];
   tfs_msg.transform.rotation.y = imu.quat[2];
@@ -476,9 +476,9 @@ void updateJoint(void)
 *******************************************************************************/
 void updateTF(geometry_msgs::TransformStamped& odom_tf)
 {
-  odom.header.frame_id = "robot2_odom";// "odom" SUSTC
+  odom.header.frame_id = "robot2_odom";// "odom" SUSTC TODO
   odom_tf.header = odom.header;
-  odom_tf.child_frame_id = "robot2_base_footprint";   // "robot1_base_footprint"  SUSTC
+  odom_tf.child_frame_id = "robot2_base_footprint";   // "robot1_base_footprint"  SUSTC TODO
   odom_tf.transform.translation.x = odom.pose.pose.position.x;
   odom_tf.transform.translation.y = odom.pose.pose.position.y;
   odom_tf.transform.translation.z = odom.pose.pose.position.z;
